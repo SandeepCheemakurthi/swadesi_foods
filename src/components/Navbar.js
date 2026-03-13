@@ -1,17 +1,74 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { FaBars, FaTimes, FaShoppingCart, FaSearch } from "react-icons/fa";
 
 export default function Navbar() {
+
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
   return (
     <nav className="navbar">
 
-      <h2 className="logo">Swadesi Foods</h2>
+      {/* Logo */}
+      <div className="logo">
+        Swadesi Foods
+      </div>
 
+      {/* Desktop Links */}
       <div className="nav-links">
+
+        <Link to="/">Home</Link>
+
+        <div
+          className="dropdown"
+          onMouseEnter={() => setDropdownOpen(true)}
+          onMouseLeave={() => setDropdownOpen(false)}
+        >
+          <span>Products ▾</span>
+
+          {dropdownOpen && (
+            <div className="dropdown-menu">
+              <Link to="/category/sweets">Sweets</Link>
+              <Link to="/category/namkeens">Namkeens</Link>
+              <Link to="/category/pickles">Pickles</Link>
+            </div>
+          )}
+        </div>
+
+        <Link to="/about">About</Link>
+        <Link to="/contact">Contact</Link>
+
+      </div>
+
+      {/* Search */}
+      <div className="search-bar">
+        <input placeholder="Search sweets..." />
+        <FaSearch />
+      </div>
+
+      {/* Cart */}
+      <div className="cart">
+        <FaShoppingCart />
+        <span className="cart-count">2</span>
+      </div>
+
+      {/* Hamburger */}
+      <div
+        className="hamburger"
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
+        {menuOpen ? <FaTimes /> : <FaBars />}
+      </div>
+
+      {/* Mobile Menu */}
+      <div className={`mobile-menu ${menuOpen ? "active" : ""}`}>
+
         <Link to="/">Home</Link>
         <Link to="/products">Products</Link>
-        <Link to="/">About</Link>
-        <Link to="/">Contact</Link>
+        <Link to="/about">About</Link>
+        <Link to="/contact">Contact</Link>
+
       </div>
 
     </nav>
