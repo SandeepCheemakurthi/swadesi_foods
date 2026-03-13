@@ -20,7 +20,7 @@ export default function Navbar() {
 
         <Link to="/">Home</Link>
 
-        <div
+        {/* <div
           className="dropdown"
           onMouseEnter={() => setDropdownOpen(true)}
           onMouseLeave={() => setDropdownOpen(false)}
@@ -34,24 +34,19 @@ export default function Navbar() {
               <Link to="/category/pickles">Pickles</Link>
             </div>
           )}
-        </div>
-
-        <Link to="/about">About</Link>
+        </div> */}
+        <Link to="/products">Products</Link>
         <Link to="/contact">Contact</Link>
+        <Link to="/about">About</Link>
 
       </div>
 
       {/* Search */}
-      <div className="search-bar">
+      {/* <div className="search-bar">
         <input placeholder="Search sweets..." />
         <FaSearch />
-      </div>
+      </div> */}
 
-      {/* Cart */}
-      <div className="cart">
-        <FaShoppingCart />
-        <span className="cart-count">2</span>
-      </div>
 
       {/* Hamburger */}
       <div
