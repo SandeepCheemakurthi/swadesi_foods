@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Swadesi Foods</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script type="text/javascript">
+      // GitHub Pages SPA redirect (https://github.com/rafgraph/spa-github-pages)
+      // This redirects all 404s to /?/path so index.html can restore it.
+      (function (l) {
+        var segmentCount = 1; // user.github.io/<repo>/...
+        l.replace(
+          l.protocol +
+            "//" +
+            l.host +
+            l.pathname
+              .split("/")
+              .slice(0, 1 + segmentCount)
+              .join("/") +
+            "/?/" +
+            l.pathname.slice(1).split("/").slice(1 + segmentCount).join("/").replace(/&/g, "~and~") +
+            (l.search ? "&" + l.search.slice(1).replace(/&/g, "~and~") : "") +
+            l.hash
+        );
+      })(window.location);
+    </script>
+  </head>
+  <body></body>
+</html>
