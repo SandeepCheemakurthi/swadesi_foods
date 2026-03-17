@@ -5,13 +5,15 @@ import Footer from "../components/Footer";
 export default function Home(){
 
   return (
-    <div>
+    <div className="app-shell">
 
       <Navbar/>
 
-      <Hero/>
+      <main className="app-content">
+        <Hero/>
 
-      {/* <CategoryGrid/> */}
+        {/* <CategoryGrid/> */}
+      </main>
 
       <Footer/>
 
