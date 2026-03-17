@@ -13,6 +13,8 @@ body {
 
 .hero {
   height: 90vh;
+  height: 90svh;
+  height: 90dvh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -146,6 +148,8 @@ body {
 
   .hero {
     height: 90vh;
+    height: 90svh;
+    height: 90dvh;
     padding: 60px 20px;
   }
 
@@ -335,9 +339,10 @@ body {
 
 .carousel {
   width: 100%;
-  height: 220px;
+  height: clamp(220px, 35vh, 480px);
   overflow: hidden;
   position: relative;
+  touch-action: pan-y;
 }
 
 .carousel-track {
@@ -351,7 +356,8 @@ body {
   height: 100%;
   object-fit: contain;
   object-position: center;
-  flex-shrink: 0;
+  flex: 0 0 100%;
+  display: block;
 }
 
 /* ARROWS */
@@ -400,23 +406,9 @@ body {
   background: white;
 }
 
-/* TABLET */
-
-@media(min-width:768px) {
-
-  .carousel {
-    height: 340px;
-  }
-
-}
-
 /* LAPTOP */
 
 @media(min-width:1200px) {
-
-  .carousel {
-    height: 480px;
-  }
 
   .arrow {
     font-size: 28px;

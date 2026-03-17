@@ -12,6 +12,8 @@ const images = [
 export default function AdvancedCarousel() {
 
   const [current, setCurrent] = useState(0);
+  const [viewportWidth, setViewportWidth] = useState(0);
+  const carouselRef = useRef(null);
   const intervalRef = useRef(null);
   const touchStart = useRef(0);
 
@@ -34,6 +36,33 @@ export default function AdvancedCarousel() {
     return () => stopAutoSlide();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [length]);
+
+  useEffect(() => {
+    const el = carouselRef.current;
+    if (!el) return;
+
+    const update = () => {
+      const next = el.getBoundingClientRect().width;
+      setViewportWidth(next);
+    };
+
+    update();
+
+    let ro;
+    if (typeof ResizeObserver !== "undefined") {
+      ro = new ResizeObserver(() => update());
+      ro.observe(el);
+    } else {
+      window.addEventListener("resize", update);
+      window.addEventListener("orientationchange", update);
+    }
+
+    return () => {
+      if (ro) ro.disconnect();
+      window.removeEventListener("resize", update);
+      window.removeEventListener("orientationchange", update);
+    };
+  }, []);
 
   /* Next / Prev */
 
@@ -63,6 +92,7 @@ export default function AdvancedCarousel() {
 
     <div
       className="carousel"
+      ref={carouselRef}
       onMouseEnter={stopAutoSlide}
       onMouseLeave={startAutoSlide}
       onTouchStart={handleTouchStart}
@@ -71,7 +101,9 @@ export default function AdvancedCarousel() {
 
       <div
         className="carousel-track"
-        style={{ transform: `translate3d(-${current * 100}%,0,0)` }}
+        style={{
+          transform: `translate3d(-${current * viewportWidth}px,0,0)`,
+        }}
       >
 
         {images.map((img, index) => (
