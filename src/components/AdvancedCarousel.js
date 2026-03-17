@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 
+const withPublicUrl = (path) => `${process.env.PUBLIC_URL || ""}${path}`;
+
 const images = [
-  "/images/broucher.jpeg",
-  "/images/bellam-sunndalu.jpeg",
-  "/images/bellam-gavalu.jpeg",
-  "/images/hot-cashew.jpeg"
+  withPublicUrl("/images/broucher.jpeg"),
+  withPublicUrl("/images/bellam-sunndalu.jpeg"),
+  withPublicUrl("/images/bellam-gavalu.jpeg"),
+  withPublicUrl("/images/hot-cashew.jpeg"),
 ];
 
 export default function AdvancedCarousel() {
@@ -15,22 +17,23 @@ export default function AdvancedCarousel() {
 
   const length = images.length;
 
-  /* Auto slide */
-
-  const startAutoSlide = () => {
-    intervalRef.current = setInterval(() => {
-      setCurrent(prev => (prev + 1) % length);
-    }, 4000);
-  };
-
   const stopAutoSlide = () => {
     clearInterval(intervalRef.current);
+    intervalRef.current = null;
+  };
+
+  const startAutoSlide = () => {
+    stopAutoSlide();
+    intervalRef.current = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % length);
+    }, 4000);
   };
 
   useEffect(() => {
     startAutoSlide();
     return () => stopAutoSlide();
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [length]);
 
   /* Next / Prev */
 

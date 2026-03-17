@@ -4,7 +4,7 @@ export const products = [
     id:1,
     name:"Tapeswaram Khaja",
     price:350,
-    image:"/images/khaja.jpg",
+    image:`${process.env.PUBLIC_URL || ""}/images/khaja.jpg`,
     description:"Traditional Andhra sweet."
   },
 
@@ -12,7 +12,7 @@ export const products = [
     id:2,
     name:"Dry Fruit Laddu",
     price:450,
-    image:"/images/laddu.jpg",
+    image:`${process.env.PUBLIC_URL || ""}/images/laddu.jpg`,
     description:"Healthy dry fruit laddu."
   },
 
@@ -20,7 +20,7 @@ export const products = [
     id:3,
     name:"Jantikalu",
     price:200,
-    image:"/images/jantikalu.jpg",
+    image:`${process.env.PUBLIC_URL || ""}/images/jantikalu.jpg`,
     description:"Crispy Andhra snack."
   }
 
