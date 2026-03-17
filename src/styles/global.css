@@ -536,6 +536,10 @@ body {
   font-weight: 600;
 }
 
+.whatsapp-pill > span {
+  min-width: 0;
+}
+
 .whatsapp-pill svg {
   font-size: 22px;
 }
@@ -557,6 +561,7 @@ body {
   color: #1f2937;
   font-size: 13px;
   padding-left: 10px;
+  overflow-wrap: anywhere;
 }
 
 .address-row {
@@ -596,6 +601,59 @@ body {
 
   .address-row {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-page {
+    padding: 18px 14px 44px;
+  }
+
+  .contact-hero {
+    text-align: left;
+  }
+
+  .contact-hero h1 {
+    font-size: 28px;
+    line-height: 1.15;
+  }
+
+  .contact-card {
+    padding: 14px;
+    border-radius: 12px;
+  }
+
+  .contact-card h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .whatsapp-pill {
+    grid-template-columns: 24px 1fr;
+    grid-template-areas:
+      "icon label"
+      "icon number";
+    row-gap: 4px;
+  }
+
+  .whatsapp-pill svg {
+    grid-area: icon;
+  }
+
+  .whatsapp-pill span:first-of-type {
+    grid-area: label;
+    overflow-wrap: anywhere;
+  }
+
+  .whatsapp-number {
+    grid-area: number;
+    padding-left: 0;
+    font-size: 12px;
+  }
+
+  .map-image {
+    width: clamp(52px, 18vw, 76px);
+    height: clamp(52px, 18vw, 76px);
   }
 }
 
