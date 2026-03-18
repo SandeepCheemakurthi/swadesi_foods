@@ -5,7 +5,7 @@ const withPublicUrl = (path) => `${process.env.PUBLIC_URL || ""}${path}`;
 const images = [
   withPublicUrl("/images/broucher.jpeg"),
   withPublicUrl("/images/bellam-sunndalu.jpeg"),
-  withPublicUrl("/images/bellam-gavalu.jpeg"),
+  withPublicUrl("/images/gavvalu_sweet_900x.webp"),
   withPublicUrl("/images/hot-cashew.jpeg"),
 ];
 
