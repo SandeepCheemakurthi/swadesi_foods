@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/swadesi_foods/static/css/main.dbefbb51.css",
-    "main.js": "/swadesi_foods/static/js/main.147b6673.js",
+    "main.css": "/swadesi_foods/static/css/main.a9c7aa65.css",
+    "main.js": "/swadesi_foods/static/js/main.a6b2054f.js",
     "static/js/453.598f3a8b.chunk.js": "/swadesi_foods/static/js/453.598f3a8b.chunk.js",
     "index.html": "/swadesi_foods/index.html",
-    "main.dbefbb51.css.map": "/swadesi_foods/static/css/main.dbefbb51.css.map",
-    "main.147b6673.js.map": "/swadesi_foods/static/js/main.147b6673.js.map",
+    "main.a9c7aa65.css.map": "/swadesi_foods/static/css/main.a9c7aa65.css.map",
+    "main.a6b2054f.js.map": "/swadesi_foods/static/js/main.a6b2054f.js.map",
     "453.598f3a8b.chunk.js.map": "/swadesi_foods/static/js/453.598f3a8b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.dbefbb51.css",
-    "static/js/main.147b6673.js"
+    "static/css/main.a9c7aa65.css",
+    "static/js/main.a6b2054f.js"
   ]
 }
