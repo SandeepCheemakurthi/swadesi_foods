@@ -11,9 +11,9 @@ export default function ProductCard({product}) {
 
       <p>₹{product.price}</p>
 
-      <Link to={`/product/${product.id}`}>
+      {/* <Link to={`/product/${product.id}`}>
         <button>View</button>
-      </Link>
+      </Link> */}
 
     </div>
   );
