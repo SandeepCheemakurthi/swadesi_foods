@@ -1,26 +1,27 @@
-const categories = [
-  "Andhra Pindivantalu",
-  "Dry Fruit Sweets",
-  "Namkeens",
-  "Pickles",
-  "Kova Sweets",
-  "Ghee Sweets"
-];
+import { useNavigate } from "react-router-dom";
+import { categories } from "../data/products";
 
 export default function CategoryGrid() {
+  const navigate = useNavigate();
+
+  const visibleCategories = (categories || []).filter((c) => c && c !== "All");
+
+  const goToCategory = (category) => {
+    navigate(`/products?category=${encodeURIComponent(category)}`);
+  };
 
   return (
-    <div className="categories">
-
-      {categories.map((cat, index) => (
-
-        <div key={index} className="category-card">
+    <div className="categories" role="list" aria-label="Shop by category">
+      {visibleCategories.map((cat) => (
+        <button
+          key={cat}
+          type="button"
+          className="category-card"
+          onClick={() => goToCategory(cat)}
+        >
           {cat}
-        </div>
-
+        </button>
       ))}
-
     </div>
   );
-
 }
