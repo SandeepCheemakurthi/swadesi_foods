@@ -1,70 +1,102 @@
-# Getting Started with Create React App
+## Swadesi Foods – Authentic Andhra Sweets & Snacks
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Swadesi Foods is a single-page React application showcasing authentic Andhra sweets, snacks, pickles, and powders.  
+Customers can browse products by category and place orders quickly through WhatsApp.
 
-## Available Scripts
+The project is built with **Create React App**, **React Router**, and a small set of reusable UI components.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Home page**
+  - Hero section highlighting *Fresh | Homemade | Authentic* Andhra items.
+  - Image carousel (`AdvancedCarousel`) with responsive auto-sliding banners.
+  - “Shop by Category” grid that deep-links into the products page with the selected category.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Products listing**
+  - Category tabs (`Products` page) powered by `categories` and `products` from `src/data/products.js`.
+  - URL-based filtering via `?category=...` query params, so category selection is shareable.
+  - Each product is rendered via `ProductCard` with image, name, and price.
+  - Clicking any product opens WhatsApp with a pre-filled order message for that item.
 
-### `npm test`
+- **Product details**
+  - `ProductDetails` page resolves a product by `id` from the URL.
+  - Shows product image, description, and price.
+  - Includes an “Order on WhatsApp” button that opens a pre-filled chat.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Navigation & layout**
+  - `Navbar` with links to Home, Products, and Contact, including a mobile hamburger menu.
+  - Global styling via `src/styles/global.css` and basic layout shell in pages.
+  - `Footer` with simple site copyright.
 
-### `npm run build`
+- **Contact page**
+  - WhatsApp contact pills for primary and secondary numbers.
+  - Store address details and a clickable map marker image that opens Google Maps.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Tech stack
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **React** (Create React App)
+- **React Router** for SPA routing (`/home`, `/products`, `/product/:id`, `/contact`)
+- **React Icons** for icons in navigation and contact UI
+- **Axios** is available as a dependency (not heavily used yet)
+- **gh-pages** for static hosting of the production build
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Getting started
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 1. Install dependencies
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+npm install
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 2. Run the app locally
 
-## Learn More
+```bash
+npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Opens the app on `http://localhost:3000/`.
+- Hot reload is enabled; changes in `src` will automatically refresh the page.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 3. Run tests
 
-### Code Splitting
+```bash
+npm test
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Runs the Create React App test runner in watch mode.
 
-### Analyzing the Bundle Size
+### 4. Build for production
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+npm run build
+```
 
-### Making a Progressive Web App
+Creates an optimized production build in the `build` folder.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+This project is configured to deploy to **GitHub Pages** using the `gh-pages` package.
 
-### Deployment
+- The `homepage` in `package.json` is set to `https://www.swadesi.food/`.
+- The `deploy` script builds the app and publishes the `build` folder.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Deploying
 
-### `npm run build` fails to minify
+```bash
+npm run deploy
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This command will:
+
+- Run `npm run build`.
+- Publish the built files to the **`gh-pages`** branch of the repository.
+
+After deployment completes, the static website files are served from the **`gh-pages`** branch, which is the branch where the website files are hosted.
